@@ -1,5 +1,6 @@
 import { useState, useId } from 'react';
 import './App.css';
+import ScaleLoader from "react-spinners/ScaleLoader"
 
 function App() {
   return (
@@ -81,7 +82,15 @@ function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix,
   return (
     <>
       <button className="Name-button" onClick={onNameButtonClick} >
-      {generating ? "Generating..." : "Create Name"}
+      {generating ? "Creating" : "Create Name"}
+      <ScaleLoader
+        className="Loading-display"
+        loading={generating}
+        color="#282c34"
+        height={20}
+        width={4}
+        radius={2}
+      />
       </button>
       <div className="Advanced-controls">
       <AdvancedUserControls

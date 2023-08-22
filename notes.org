@@ -18,13 +18,17 @@ Next steps:
 - [X] Write frontend with React, and possibly React
 - [X] Allow in frontend the addition of a beginning, e.g. to input a first name
   and receive a full character name.
-- [ ] Make "advanced options" section collapsible
-- [ ] Improve styling of "Give name" button to make it more obviously the main
+- [X] Make "advanced options" section collapsible
+- [X] Try to add a status indicator when fetching data from backend: use
+  react-spinners, try PulseLoader or SyncLoader.
+- [X] Improve styling of "Give name" button to make it more obviously the main
   interactive component
 - [ ] Set up general styling of page in Art Deco style, make names appear as
   cards
+  - A nice Art Deco button design: [[https://codepen.io/mr-tamagotchi/pen/yzRQba][Art Deco Button]]
 - [ ] Create better favicon and logo (bowler hat?)
 - [ ] Write footer text, to include links to Github (and blog post?)
+- [ ] Check responsive design on different screen sizes
 - [ ] Deploy to web  
 - [ ] Write blog post
 - [ ] Perhaps make user controls fixed on page, rather than floating down and up
@@ -33,6 +37,7 @@ Next steps:
   staying in the same place is that one doesn't need to move the pointer to
   click the "Give name" button more than once when generating multiple names.
   This is likely the better behaviour.
+- [ ] Try to animate the opening and closing of the advanced options section
   
 * Issues and technical notes
 To get =textgenrnn= to load in python, I had to edit a core file, even after

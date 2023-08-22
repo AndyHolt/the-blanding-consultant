@@ -81,18 +81,10 @@ function NameTable() {
 function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix, onPrefixChange, generating }) {
   return (
     <>
-      <button className="Name-button" onClick={onNameButtonClick} >
-      {generating ? "Creating" : "Create Name"}
-      <PulseLoader
-        className="Loading-display"
-        loading={generating}
-        color="#2F1D28"
-        size={10}
-        // height={20}
-        // width={4}
-        // radius={2}
+      <NameGenerateButton
+        onNameButtonClick={onNameButtonClick}
+        generating={generating}
       />
-      </button>
       <div className="Advanced-controls">
       <AdvancedUserControls
         className="Advanced-controls"
@@ -103,6 +95,20 @@ function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix,
       />
       </div>
       </>
+  );
+}
+
+function NameGenerateButton({ onNameButtonClick, generating }) {
+  return (
+      <button className="Name-button" onClick={onNameButtonClick} >
+      {generating ? "Creating" : "Create Name"}
+      <PulseLoader
+        className="Loading-display"
+        loading={generating}
+        color="#2F1D28"
+        size={10}
+      />
+      </button>
   );
 }
 

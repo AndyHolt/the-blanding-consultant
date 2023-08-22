@@ -23,6 +23,7 @@ Next steps:
   interactive component
 - [ ] Set up general styling of page in Art Deco style, make names appear as
   cards
+- [ ] Create better favicon and logo (bowler hat?)
 - [ ] Write footer text, to include links to Github (and blog post?)
 - [ ] Deploy to web  
 - [ ] Write blog post

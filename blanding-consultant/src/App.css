@@ -75,6 +75,11 @@
 
 .Advanced-user-options-header {
     font-size: 0.8em;
+    cursor: pointer;
+}
+
+.Advanced-user-controls-hidden {
+    display: none;
 }
 
 .Advanced-user-controls-container {

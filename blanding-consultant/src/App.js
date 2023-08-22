@@ -93,41 +93,63 @@ function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix,
 }
 
 function AdvancedUserControls({ absurdity, onAbsurdityChange, prefix, onPrefixChange }) {
+  const [advancedControlsActive, setAdvancedControlsActive] = useState(true);
+
+  function handleAdvancedClick() {
+    setAdvancedControlsActive(!advancedControlsActive);
+  }
+
+  return (
+      <div className="Advanced-user-options-container">
+      <div className="Advanced-user-options-header" onClick={() => handleAdvancedClick()}>
+      Advanced options {advancedControlsActive ? "⊖" : "⊕"}
+        </div>
+      {advancedControlsActive ? (
+          <AdvancedUserOptions
+        absurdity={absurdity}
+        onAbsurdityChange={onAbsurdityChange}
+        prefix={prefix}
+        onPrefixChange={onPrefixChange}
+          />
+      ) : (
+        <div className="Advanced-user-controls-hidden"></div>
+      )
+      }
+      </div>
+      );
+}
+
+function AdvancedUserOptions({ absurdity, onAbsurdityChange, prefix, onPrefixChange}) {
   const absurditySelectId = useId();
   const prefixInputId = useId();
 
   return (
-      <div className="Advanced-user-options-container">
-        <div className="Advanced-user-options-header">
-          Advanced options
-        </div>
-        <form className="Advanced-user-controls-container">
-          <div className="Absurdity-control">
-            <label htmlFor={absurditySelectId}>Absurdity:</label>
-            <select
-              name="absurdity"
-              id={absurditySelectId}
-              value={absurdity}
-              onChange={onAbsurdityChange}
-            >
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option>
-            </select>
-          </div>
-          <div className="Prefix-control">
+      <form className="Advanced-user-controls-container">
+      <div className="Absurdity-control">
+      <label htmlFor={absurditySelectId}>Absurdity:</label>
+      <select
+    name="absurdity"
+    id={absurditySelectId}
+    value={absurdity}
+    onChange={onAbsurdityChange}
+      >
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+      </select>
+      </div>
+      <div className="Prefix-control">
       <label htmlFor={prefixInputId}> Begins with: </label>
       <input
-        id={prefixInputId}
-        name="prefix"
-        type="text"
-        value={prefix}
-        onChange={onPrefixChange}
+    id={prefixInputId}
+    name="prefix"
+    type="text"
+    value={prefix}
+    onChange={onPrefixChange}
       />
       </div>
-        </form>
-      </div>
-      );
+      </form>
+  );
 }
 
 function ResultTable({ names }) {

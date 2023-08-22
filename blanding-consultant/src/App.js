@@ -76,7 +76,7 @@ function NameTable() {
 function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix, onPrefixChange }) {
   return (
     <>
-      <button className="nameButton" onClick={onNameButtonClick} >
+      <button className="Name-button" onClick={onNameButtonClick} >
         Give Name
       </button>
       <div className="Advanced-controls">

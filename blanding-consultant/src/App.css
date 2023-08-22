@@ -95,10 +95,6 @@
     column-gap: 1em;
 }
 
-input {
-    margin-left: 1em;
-}
-
 .Result-table {
     display: flex;
     flex-direction: column;

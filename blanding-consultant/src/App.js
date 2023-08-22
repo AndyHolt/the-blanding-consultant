@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useId } from 'react';
 import './App.css';
 
 function App() {
@@ -93,6 +93,9 @@ function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix,
 }
 
 function AdvancedUserControls({ absurdity, onAbsurdityChange, prefix, onPrefixChange }) {
+  const absurditySelectId = useId();
+  const prefixInputId = useId();
+
   return (
       <div className="Advanced-user-options-container">
         <div className="Advanced-user-options-header">
@@ -100,10 +103,10 @@ function AdvancedUserControls({ absurdity, onAbsurdityChange, prefix, onPrefixCh
         </div>
         <form className="Advanced-user-controls-container">
           <div className="Absurdity-control">
-            <label for="absurdity">Absurdity:</label>
+            <label htmlFor={absurditySelectId}>Absurdity:</label>
             <select
               name="absurdity"
-              id="absurdity"
+              id={absurditySelectId}
               value={absurdity}
               onChange={onAbsurdityChange}
             >
@@ -113,12 +116,15 @@ function AdvancedUserControls({ absurdity, onAbsurdityChange, prefix, onPrefixCh
             </select>
           </div>
           <div className="Prefix-control">
-      <label>
-      Begins with:
-      <input name="prefix" type="text" value={prefix} onChange={onPrefixChange}/>
-    </label>
-            
-          </div>
+      <label htmlFor={prefixInputId}> Begins with: </label>
+      <input
+        id={prefixInputId}
+        name="prefix"
+        type="text"
+        value={prefix}
+        onChange={onPrefixChange}
+      />
+      </div>
         </form>
       </div>
       );

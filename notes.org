@@ -1,0 +1,98 @@
+* Current status
+- Have created a file with names of Wodehouse characters from Wikipedia page
+  https://en.wikipedia.org/wiki/List_of_P._G._Wodehouse_characters,
+  =wodehouse-characters.txt=
+- Have done a basic model training on this using =textgenrnn= library in python.
+- Using a small dataset, multiple epochs improves training, I have so far tried
+  1 (not great results) and 10 (good results!). And it only took a few minutes
+  to train to 10 epochs.
+- I tried training on 100 epochs, but simply reproduces training data.
+
+Next steps:
+- [X] Read articles on =textgenrnn= and tensorflow to understand a little better
+- [X] See if generation can happen faster? (Marked as complete because
+  generation seems fast enough for now)
+- [X] Work out interface for simply requesting a name and getting it back
+- [X] Turn interface into a flask app
+- [X] Add processing of url parameters to set absurdity level and name beginning
+- [X] Write frontend with React, and possibly React
+- [X] Allow in frontend the addition of a beginning, e.g. to input a first name
+  and receive a full character name.
+- [ ] Make "advanced options" section collapsible
+- [ ] Improve styling of "Give name" button to make it more obviously the main
+  interactive component
+- [ ] Set up general styling of page in Art Deco style, make names appear as
+  cards
+- [ ] Write footer text, to include links to Github (and blog post?)
+- [ ] Deploy to web  
+- [ ] Write blog post
+- [ ] Perhaps make user controls fixed on page, rather than floating down and up
+  depending on what results there are to display? The advantage of floating is
+  that it makes the page always a little better balanced. The advantage of
+  staying in the same place is that one doesn't need to move the pointer to
+  click the "Give name" button more than once when generating multiple names.
+  This is likely the better behaviour.
+  
+* Issues and technical notes
+To get =textgenrnn= to load in python, I had to edit a core file, even after
+installing directly from github!
+
+File is /usr/local/lib/python3.11/site-packages/textgenrnn/textgenrnn.py
+
+Modifications (Tuesday 15th August 2023 PM):
+1. comment out line 5: ~from tensorflow.keras.utils import multi_gpu_model~
+2. Change line 14 from ~from keras.backend.tensorflow_backend import set_session~
+   to ~from tensorflow.python.keras.backend import set_session~
+3. Have also on Wednesday 16th August 2023 modified, in same file, line ~from
+   tensorflow.keras.optimizers import Adam~ to ~from
+   tensorflow.keras.optimizers.legacy import Adam~
+
+Another issue is to do with training data. Though Wodehouse was prolific as an author,
+the total data when using the characters from his writings is very limited,
+7,328 character sequences in 415 texts, compared to the 100,000+ characters
+generally required for training a good model. The solution is to use the
+~textgenrnn~ library to give a starting point of a model trained on general
+English text, and then use the limited data of character names to tune this
+general text-generation model for Wodehouse style names. Provided the training
+amount gets the right balance, this appears an effective method.
+
+Background information on =textgenrnn= found at:
+https://minimaxir.com/2018/05/text-neural-networks/.
+
+Article on RNNs: http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+
+Keras machine learning for humans python library (built on tensorflow): https://github.com/keras-team/keras
+
+Tensorflow machine learning library: https://github.com/tensorflow/tensorflow
+
+* Learning in python
+#+begin_src python
+  from textgenrnn import textgenrnn
+
+  textgen = textgenrnn()
+  textgen.train_from_file('wodehouse-characters-su.txt', num_epochs=10)
+
+  textgen.generate_samples()
+
+  textgen.generate(temperature=0.7)
+#+end_src
+
+Training from file:
+#+begin_src python
+textgen.train_from_file('wodehouse-characters-su.txt', header=False, num_epochs=10)
+#+end_src
+
+* Connecting React frontend to flask backend
+See [[https://dev.to/ondiek/connecting-a-react-frontend-to-a-flask-backend-h1o][How to Connect a React Frontend to a Flask Backend - DEV Community]].
+
+Don't need to use React's ~useEffect~ hook system (as most blogs and articles on
+interfacing React with Flask backends instruct), since the api simply supplies a
+new entry to be added to state. React updates when state is changed, but does
+not need to check for updates from the API, since that is fully handled by the
+button being clicked. See [[https://react.dev/learn/you-might-not-need-an-effect][You Might Not Need an Effect – React]]. Instead, simply
+make a request as part of the handling of the click, and use this to update
+state, giving React the information it needs to keep the interface updated.
+
+When running as a dev environment, there is a problem accessing the API because
+of Access-Control-Allow-Origin. The solution is to use Flask-CORS (Cross Origin
+Resource Sharing). This shouldn't be needed when running in production.

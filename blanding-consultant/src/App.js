@@ -13,7 +13,7 @@ function App() {
         <NameTable />
       </div>
       <footer className="App-footer">
-      By Andy Holt
+      Made by <a href="https://andyholt.github.io">Andy Holt</a> <span className="Separator-dot"></span> <a href="https://github.com/AndyHolt/the-blanding-consultant">Github</a>
       </footer>
     </div>
   );

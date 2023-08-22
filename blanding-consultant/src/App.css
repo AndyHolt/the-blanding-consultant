@@ -50,7 +50,7 @@
    /* background-color: #7DACAD; */
     min-height: 5vh;
     display: flex;
-    flex-direction: column;    
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -203,3 +203,14 @@
     color: #90843C;
     /* background-color: #90843C; */
 }
+
+.Separator-dot {
+  height: 0.3rem;
+  width: 0.3rem;
+  background-color: #2F1D27;
+  border-radius: 50%;
+  display: inline;
+  margin-left: 1ex;
+  margin-right: 1ex;
+}
+

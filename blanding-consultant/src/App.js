@@ -1,6 +1,6 @@
 import { useState, useId } from 'react';
 import './App.css';
-import ScaleLoader from "react-spinners/ScaleLoader"
+import PulseLoader from "react-spinners/PulseLoader"
 
 function App() {
   return (
@@ -83,13 +83,14 @@ function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix,
     <>
       <button className="Name-button" onClick={onNameButtonClick} >
       {generating ? "Creating" : "Create Name"}
-      <ScaleLoader
+      <PulseLoader
         className="Loading-display"
         loading={generating}
-        color="#282c34"
-        height={20}
-        width={4}
-        radius={2}
+        color="#2F1D28"
+        size={10}
+        // height={20}
+        // width={4}
+        // radius={2}
       />
       </button>
       <div className="Advanced-controls">

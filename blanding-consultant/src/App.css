@@ -132,6 +132,11 @@
     align-items: center;
 }
 
+.Advanced-user-options-header:hover {
+    color: #fb8332;
+    font-weight: 600;
+}
+
 .Advanced-user-controls-hidden {
     display: none;
 }

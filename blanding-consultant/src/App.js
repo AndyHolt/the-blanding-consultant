@@ -22,8 +22,10 @@ function NameTable() {
   const [names, setNames] = useState([]);
   const [absurdity, setAbsurdity] = useState("Medium");
   const [prefix, setPrefix] = useState("");
+  const [generating, setGenerating] = useState(false);
   
   function handleClick() {
+    setGenerating(true);
     let url = new URL("http://127.0.0.1:5000");
     let params = new URLSearchParams(url);
     params.set("absurdity", absurdity);
@@ -49,6 +51,7 @@ function NameTable() {
       nextNames.pop()
     }
     setNames(nextNames);
+    setGenerating(false);
   }
 
   function handlePrefixChange(e) {
@@ -67,17 +70,18 @@ function NameTable() {
         onAbsurdityChange={(e) => handleAbsurdityChange(e)}
         prefix={prefix}
         onPrefixChange={e => handlePrefixChange(e)}
+        generating={generating}
       />
       <ResultTable className="Result-table" names={names} />
     </div>
   );
 }
 
-function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix, onPrefixChange }) {
+function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix, onPrefixChange, generating }) {
   return (
     <>
       <button className="Name-button" onClick={onNameButtonClick} >
-        Give Name
+      {generating ? "Generating..." : "Create Name"}
       </button>
       <div className="Advanced-controls">
       <AdvancedUserControls

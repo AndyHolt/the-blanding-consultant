@@ -1,5 +1,5 @@
 .App {
-    text-align: cente;
+    text-align: center;
     display: flex;
     height: 100vh;
     flex-direction: column;
@@ -115,11 +115,15 @@
   width: auto;
   justify-content: space-between;
   margin-top: 0.7em;
+  align-items: center;
+
 }
 
 .Advanced-user-options-header {
-    font-size: 0.8em;
+    font-size: calc(0.4em + 1.5vmin);
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
 }
 
 .Advanced-user-controls-hidden {
@@ -128,7 +132,7 @@
 
 .Advanced-user-controls-container {
     display: grid;
-    flex-direction: row;
+    margin: 0.5em
 }
 
 .Absurdity-control {
@@ -145,6 +149,7 @@
 }
 
 .Result-table {
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;

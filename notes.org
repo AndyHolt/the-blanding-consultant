@@ -102,3 +102,19 @@ state, giving React the information it needs to keep the interface updated.
 When running as a dev environment, there is a problem accessing the API because
 of Access-Control-Allow-Origin. The solution is to use Flask-CORS (Cross Origin
 Resource Sharing). This shouldn't be needed when running in production.
+
+* Art Deco style
+Colours:
+| Colour      | Hex code |   R |   G |   B |   C |   M |   Y |   K |
+|-------------+----------+-----+-----+-----+-----+-----+-----+-----|
+| Vanilla     | #FFF4EO  | 255 | 244 | 244 | 004 | 013 | 032 | 000 |
+| Yellow      | #F7BC1C  | 247 | 188 | 028 | 000 | 032 | 095 | 000 |
+| Orange      | #F36724  | 243 | 103 | 036 | 003 | 092 | 100 | 000 |
+| Red         | #A30604  | 163 | 006 | 004 | 026 | 096 | 086 | 024 |
+| Green       | #90843C  | 144 | 132 | 060 | 042 | 045 | 098 | 017 |
+| Blue        | #7DACAD  | 125 | 172 | 173 | 053 | 023 | 029 | 000 |
+| Navy        | #283D5F  | 040 | 061 | 095 | 100 | 069 | 024 | 007 |
+| Deep Purple | #2F1D28  | 047 | 029 | 040 | 083 | 084 | 049 | 060 |
+| Black       | #000000  | 000 | 000 | 000 | 000 | 000 | 000 | 100 |
+| White       | #FFFFFF  | 255 | 255 | 255 | 000 | 000 | 000 | 000 |
+

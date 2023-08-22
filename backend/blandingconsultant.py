@@ -1,7 +1,9 @@
 from flask import Flask, request
 from textgenrnn import textgenrnn
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 wcmodel = textgenrnn(weights_path="wcmodel_weights.hdf5")
 # generation_temperature = 0.5
 # generation_prefix = ""

@@ -97,7 +97,7 @@ function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix,
 }
 
 function AdvancedUserControls({ absurdity, onAbsurdityChange, prefix, onPrefixChange }) {
-  const [advancedControlsActive, setAdvancedControlsActive] = useState(true);
+  const [advancedControlsActive, setAdvancedControlsActive] = useState(false);
 
   function handleAdvancedClick() {
     setAdvancedControlsActive(!advancedControlsActive);

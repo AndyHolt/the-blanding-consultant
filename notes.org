@@ -39,6 +39,7 @@ Next steps:
   staying in the same place is that one doesn't need to move the pointer to
   click the "Give name" button more than once when generating multiple names.
   This is likely the better behaviour.
+- [ ] Reduce gap at bottom of page when result table is too tall to fit in page
 - [ ] Try to animate the opening and closing of the advanced options section
 - [ ] Add a dark mode, see [[https://blog.logrocket.com/dark-mode-react-in-depth-guide/][Dark mode in React: An in-depth guide - LogRocket
   Blog]].

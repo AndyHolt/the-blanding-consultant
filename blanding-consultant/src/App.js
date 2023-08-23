@@ -73,7 +73,9 @@ function NameTable() {
         onPrefixChange={e => handlePrefixChange(e)}
         generating={generating}
       />
+      <div className="Result-table-scroll-container">
       <ResultTable className="Result-table" names={names} />
+      </div>
     </div>
   );
 }
@@ -218,9 +220,9 @@ function Result({ name, isCurrent }) {
   // let usePrefix = null;
 
   if (isCurrent === "True") {
-    resultType = "Current-result";
+    resultType = "Result Current-result";
   } else {
-    resultType = "Previous-result";
+    resultType = "Result Previous-result";
   }
  
   return (

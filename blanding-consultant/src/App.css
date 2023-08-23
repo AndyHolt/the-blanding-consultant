@@ -69,6 +69,7 @@ html {
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+    overflow: hidden;
 }
 
 .App-footer {
@@ -90,8 +91,8 @@ html {
     width: auto;
     max-width: 600px;
     align-items: center;
-    overflow: auto;
-    margin-top: 1em;
+    overflow: hidden;
+    margin-top: 2em;
 }
 
 /* .Name-button { */
@@ -273,25 +274,63 @@ html {
     column-gap: 1em;
 }
 
+.Result-table-scroll-container {
+  margin: auto;
+  overflow: auto;
+  margin-top: 1em;
+
+}
+
 .Result-table {
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow: auto;
-    margin-top: 1em;
+    height: auto;
+}
+
+.Previous-results-list {
+    display: block;
+    flex-direction: column;
+}
+
+.Result {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin: 0.2em;
+  padding: 0.5em 1.0em;
+  border: 15px solid transparent;
+  outline-offset: -10px;
 }
 
 .Current-result {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    margin-top: calc(10px + 5vh);
-    /* background-color: var(--highlight-color-1); */
-    padding: 0.5em 1.0em;
-    outline: solid var(--main-text-color) 1px;
+  outline: 2px solid var(--highlight-color-3);
+  background:
+    linear-gradient(var(--highlight-color-3) 0 0) top,
+    linear-gradient(var(--highlight-color-3) 0 0) left,
+    linear-gradient(var(--highlight-color-3) 0 0) bottom,
+    linear-gradient(var(--highlight-color-3) 0 0) right;
+  background-size: 200% 2px, 2px 200%;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+  /* margin-top: calc(10px + 5vh); */
+}
+
+.Previous-result {
+  color: var(--fade-text-color);
+    outline: 2px solid var(--fade-text-color);
+  background:
+    linear-gradient(var(--fade-text-color) 0 0) top,
+    linear-gradient(var(--fade-text-color) 0 0) left,
+    linear-gradient(var(--fade-text-color) 0 0) bottom,
+    linear-gradient(var(--fade-text-color) 0 0) right;
+  background-size: 200% 2px, 2px 200%;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+    /* background-color: var(--highlight-color-4); */
+    /* outline: solid var(--fade-text-color) 1px; */
     /* box-shadow: 2px 2px 1px 1px; */
-    margin: 0.2em;
 }
 
 .Result-name {
@@ -303,23 +342,6 @@ html {
     flex-direction: row;
     justify-content: space-between;
     column-gap: 1em;
-}
-
-.Previous-results-list {
-    display: block;
-    flex-direction: column;
-}
-
-.Previous-result {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    color: var(--fade-text-color);
-    padding: 0.5em 1.0em;
-    /* background-color: var(--highlight-color-4); */
-    margin: 0.2em;
-    outline: solid var(--fade-text-color) 1px;
-    /* box-shadow: 2px 2px 1px 1px; */
 }
 
 .Separator-dot {

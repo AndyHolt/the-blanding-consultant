@@ -23,11 +23,13 @@ Next steps:
   react-spinners, try PulseLoader or SyncLoader.
 - [X] Improve styling of "Give name" button to make it more obviously the main
   interactive component
-- [ ] Set up general styling of page in Art Deco style, make names appear as
-  cards
+- [X] Set up general styling of page in Art Deco style
   - A nice Art Deco button design: [[https://codepen.io/mr-tamagotchi/pen/yzRQba][Art Deco Button]]
+- [X] Make names appear as cards: need to fix scrolling, and improve card design
+- [ ] Style elements of advanced options (input box and select)
+- [X] Set style of links in CSS, including colour of links after clicking
 - [ ] Create better favicon and logo (bowler hat?)
-- [ ] Write footer text, to include links to Github (and blog post?)
+- [X] Write footer text, to include links to Github (and blog post?)
 - [ ] Check responsive design on different screen sizes
 - [ ] Deploy to web  
 - [ ] Write blog post
@@ -38,6 +40,10 @@ Next steps:
   click the "Give name" button more than once when generating multiple names.
   This is likely the better behaviour.
 - [ ] Try to animate the opening and closing of the advanced options section
+- [ ] Add a dark mode, see [[https://blog.logrocket.com/dark-mode-react-in-depth-guide/][Dark mode in React: An in-depth guide - LogRocket
+  Blog]].
+- [ ] Put an art-deco pattern behind the heading to make header section stand
+  out a bit more
   
 * Issues and technical notes
 To get =textgenrnn= to load in python, I had to edit a core file, even after

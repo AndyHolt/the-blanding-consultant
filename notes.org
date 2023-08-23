@@ -28,9 +28,9 @@ Next steps:
 - [X] Make names appear as cards: need to fix scrolling, and improve card design
 - [ ] Style elements of advanced options (input box and select)
 - [X] Set style of links in CSS, including colour of links after clicking
-- [ ] Create better favicon and logo (bowler hat?)
+- [X] Create better favicon and logo (bowler hat?)
 - [X] Write footer text, to include links to Github (and blog post?)
-- [ ] Check responsive design on different screen sizes
+- [X] Check responsive design on different screen sizes
 - [ ] Deploy to web  
 - [ ] Write blog post
 - [ ] Perhaps make user controls fixed on page, rather than floating down and up

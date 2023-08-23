@@ -93,6 +93,7 @@ html {
     flex-direction: column;
     width: auto;
     max-width: 600px;
+    max-height: 60vh;
     align-items: center;
     overflow: hidden;
     margin-top: 2em;

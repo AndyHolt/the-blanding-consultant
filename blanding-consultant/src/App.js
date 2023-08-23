@@ -82,11 +82,13 @@ function NameTable() {
 
 function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix, onPrefixChange, generating }) {
   return (
-    <>
+      <>
+      <div className="Name-button-container">
       <NameGenerateButton
         onNameButtonClick={onNameButtonClick}
         generating={generating}
       />
+      </div>
       <div className="Advanced-controls">
       <AdvancedUserControls
         className="Advanced-controls"

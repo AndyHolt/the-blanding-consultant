@@ -99,16 +99,34 @@ function UserControls({ onNameButtonClick, absurdity, onAbsurdityChange, prefix,
 }
 
 function NameGenerateButton({ onNameButtonClick, generating }) {
+  const [color, setColor] = useState("#F7BC1C");
+
   return (
-      <button className="Name-button" onClick={onNameButtonClick} >
+      <div className="Name-button"
+        onClick={onNameButtonClick}
+        onPointerEnter={() => setColor("#2F1D28")}
+        onPointerLeave={() => setColor("#F7BC1C")}
+      >
+        <div className="Button-ornament Button-ornament-vertical">
+          <div className="Button-ornament-top-bottom"></div>
+          <div className="Button-ornament-left-right"></div>
+        </div>
+
+        <div className="Button-ornament Button-ornament-horizontal">
+          <div className="Button-ornament-top-bottom"></div>
+          <div className="Button-ornament-left-right"></div>
+        </div>
+
+      <div className="Name-button-label">
       {generating ? "Creating" : "Create Name"}
       <PulseLoader
         className="Loading-display"
         loading={generating}
-        color="#2F1D28"
+        color={color}
         size={10}
       />
-      </button>
+      </div>
+      </div>
   );
 }
 

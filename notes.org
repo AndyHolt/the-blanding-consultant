@@ -64,6 +64,9 @@ copy textgenrnn into a new directory in the app directory, thus making it a
 package with loading priority over the properly installed one. Ensure this
 directory gets uploaded for production, and voila!
 
+Update, <2023-08-24 Thu 10:43>: Google cloud app engine only offers cpu, not gpu access. So see if it runs
+better using the cpu optimised Tensorflow package
+
 Modifications (Tuesday 15th August 2023 PM):
 1. comment out line 5: ~from tensorflow.keras.utils import multi_gpu_model~
 2. Change line 14 from ~from keras.backend.tensorflow_backend import set_session~

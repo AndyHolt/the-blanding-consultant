@@ -2,19 +2,7 @@ from flask import Flask, request
 from textgenrnn import textgenrnn
 from flask_cors import CORS
 import gc
-import tracemalloc
 import tensorflow as tf
-
-# Try to limit tensorflow memory useage
-# config = tf.compat.v1.ConfigProto()
-# config.gpu_options.allow_growth = True
-# config.gpu_options.per_process_gpu_memory_fraction = 0.1
-# config.log_device_placement = True
-# sess = tf.compat.v1.Session(config=config)
-
-tracemalloc.start()
-s1 = None
-s2 = None
 
 app = Flask(__name__)
 CORS(app)
@@ -75,13 +63,6 @@ def generate_name(absurdity="Medium", prefix=None):
 
     character = new_name(gen_name, absurdity, prefix, generation_attempts)
 
-    # del gen_name
-    # del generation_attempts
-    # del absurdity
-    # del prefix
-    # del real_name_list
-    # gc.collect()
-
     # reduce constantly-increasing memory use
     tf.keras.backend.clear_session()
     gc.collect()
@@ -115,29 +96,6 @@ def read_character_names():
         real_chars = f.readlines()
         
     return [real_chars[i].rstrip("\n") for i in range(len(real_chars))]
-
-
-@app.route("/snap1")
-def take_first_malloc_snap():
-    global s1
-    s1 = tracemalloc.take_snapshot()
-    return "<p>Snapshot 1 taken</p>"
-
-
-@app.route("/snap2")
-def take_second_malloc_snap():
-    global s1
-    global s2
-    s2 = tracemalloc.take_snapshot()
-    
-    top_stats = s2.compare_to(s1, 'lineno')
-
-    print(f"[ There are {len(top_stats)} differences discovered ]")
-    print("[ Top 10 differences ]")
-    for stat in top_stats[:10]:
-        print(stat)
-    
-    return "<p>Snapshot 2 taken and differences printed</p>"
 
 
 class new_name:

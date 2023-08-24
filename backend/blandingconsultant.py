@@ -4,18 +4,10 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-wcmodel = textgenrnn(weights_path="wcmodel_weights.hdf5")
-# generation_temperature = 0.5
-# generation_prefix = ""
+model_data_initialised = False
 
-
-def read_character_names():
-    with open("wodehouse-characters-su.txt", "r") as f:
-        real_chars = f.readlines()
-    return [real_chars[i].rstrip("\n") for i in range(len(real_chars))]
-
-
-real_name_list = read_character_names()
+wcmodel = None
+real_name_list = None
 
 
 @app.route("/")
@@ -33,6 +25,15 @@ def generate_name(absurdity="Medium", prefix=None):
     - prefix: Beginning of string generated. Allows inputting of a first name or
               title which is then expanded to a full name.
     """
+    global wcmodel
+    global real_name_list
+    global model_data_initialised
+
+    if not model_data_initialised:
+        print("Initialising model and data in generate_name function...")
+        init_model_data()
+        print("Model and data initalised, getting on with request now...")
+
     absurdity = request.args.get("absurdity", default="Medium", type=str)
     prefix = request.args.get("prefix", default=None, type=str)
 
@@ -67,6 +68,26 @@ def generate_name(absurdity="Medium", prefix=None):
         "prefix": character.prefix,
         "attempts": character.attempts,
     }
+
+
+@app.route("/_ah/warmup")
+def init_model_data():
+    """
+    Set up model and data. Used for warm up request to improve serve time
+    """
+    global wcmodel
+    global real_name_list
+    global model_data_initialised
+
+    wcmodel = textgenrnn(weights_path="wcmodel_weights.hdf5")
+    real_name_list = read_character_names()
+    model_data_initialised = True
+
+
+def read_character_names():
+    with open("wodehouse-characters-su.txt", "r") as f:
+        real_chars = f.readlines()
+    return [real_chars[i].rstrip("\n") for i in range(len(real_chars))]
 
 
 class new_name:

@@ -1,6 +1,20 @@
 from flask import Flask, request
 from textgenrnn import textgenrnn
 from flask_cors import CORS
+import gc
+import tracemalloc
+import tensorflow as tf
+
+# Try to limit tensorflow memory useage
+# config = tf.compat.v1.ConfigProto()
+# config.gpu_options.allow_growth = True
+# config.gpu_options.per_process_gpu_memory_fraction = 0.1
+# config.log_device_placement = True
+# sess = tf.compat.v1.Session(config=config)
+
+tracemalloc.start()
+s1 = None
+s2 = None
 
 app = Flask(__name__)
 CORS(app)
@@ -8,7 +22,6 @@ model_data_initialised = False
 
 wcmodel = None
 real_name_list = None
-
 
 @app.route("/")
 def generate_name(absurdity="Medium", prefix=None):
@@ -39,16 +52,16 @@ def generate_name(absurdity="Medium", prefix=None):
 
     match absurdity:
         case "Low":
-            print("Low absurdity selected, using temperature 0.2")
+            # print("Low absurdity selected, using temperature 0.2")
             generation_temperature = 0.2
         case "Medium":
-            print("Medium absurdity selected, using temperature 0.5")
+            # print("Medium absurdity selected, using temperature 0.5")
             generation_temperature = 0.5
         case "High":
-            print("High absurdity selected, using temperature 0.8")
+            # print("High absurdity selected, using temperature 0.8")
             generation_temperature = 0.8
         case _:
-            print("Invalid absurdity selected, using Medium")
+            # print("Invalid absurdity selected, using Medium")
             generation_temperature = 0.5
 
     generation_attempts = 0
@@ -61,6 +74,17 @@ def generate_name(absurdity="Medium", prefix=None):
             break
 
     character = new_name(gen_name, absurdity, prefix, generation_attempts)
+
+    # del gen_name
+    # del generation_attempts
+    # del absurdity
+    # del prefix
+    # del real_name_list
+    # gc.collect()
+
+    # reduce constantly-increasing memory use
+    tf.keras.backend.clear_session()
+    gc.collect()
 
     return {
         "name": character.char_name,
@@ -89,7 +113,31 @@ def init_model_data():
 def read_character_names():
     with open("wodehouse-characters-su.txt", "r") as f:
         real_chars = f.readlines()
+        
     return [real_chars[i].rstrip("\n") for i in range(len(real_chars))]
+
+
+@app.route("/snap1")
+def take_first_malloc_snap():
+    global s1
+    s1 = tracemalloc.take_snapshot()
+    return "<p>Snapshot 1 taken</p>"
+
+
+@app.route("/snap2")
+def take_second_malloc_snap():
+    global s1
+    global s2
+    s2 = tracemalloc.take_snapshot()
+    
+    top_stats = s2.compare_to(s1, 'lineno')
+
+    print(f"[ There are {len(top_stats)} differences discovered ]")
+    print("[ Top 10 differences ]")
+    for stat in top_stats[:10]:
+        print(stat)
+    
+    return "<p>Snapshot 2 taken and differences printed</p>"
 
 
 class new_name:

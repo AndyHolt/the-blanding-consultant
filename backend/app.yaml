@@ -1,5 +1,5 @@
 runtime: python311
-entrypoint: gunicorn -b :$PORT -w 2 blandingconsultant:app
+entrypoint: gunicorn -b :$PORT --timeout 120 blandingconsultant:app
 
 automatic_scaling:
   min_instances: 1

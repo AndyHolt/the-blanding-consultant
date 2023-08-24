@@ -83,6 +83,8 @@ def init_model_data():
     real_name_list = read_character_names()
     model_data_initialised = True
 
+    return "", 200, {}
+
 
 def read_character_names():
     with open("wodehouse-characters-su.txt", "r") as f:

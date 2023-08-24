@@ -52,6 +52,18 @@ installing directly from github!
 
 File is /usr/local/lib/python3.11/site-packages/textgenrnn/textgenrnn.py
 
+Update, <2023-08-24 Thu 01:21>: After setting up a venv, the same file in a
+different location needs the same modifications. This results in a more
+significant problem when it comes time to deploy the app for production, because
+a modified version of the textgenrnn package needs to be used, which cannot be
+automatically installed based on a =requirements.txt= file. An elegant solution
+would be to fork the package, make the modified changes and have
+=requirements.txt= install that forked package from Github. That may be a better
+solution to enact at some point. But for now, the best solution is simply to
+copy textgenrnn into a new directory in the app directory, thus making it a
+package with loading priority over the properly installed one. Ensure this
+directory gets uploaded for production, and voila!
+
 Modifications (Tuesday 15th August 2023 PM):
 1. comment out line 5: ~from tensorflow.keras.utils import multi_gpu_model~
 2. Change line 14 from ~from keras.backend.tensorflow_backend import set_session~

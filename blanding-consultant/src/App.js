@@ -123,12 +123,14 @@ function NameGenerateButton({ onNameButtonClick, generating }) {
 
       <div className="Name-button-label">
       {generating ? "Creating" : "Create Name"}
+      <div className="Loading-indicator">
       <PulseLoader
         className="Loading-display"
         loading={generating}
         color={color}
         size={10}
       />
+      </div>
       </div>
       </div>
   );

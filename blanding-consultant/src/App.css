@@ -165,6 +165,7 @@ html {
   /* min-width: 340px; */
   text-align: center;
   margin: 0.5em;
+  vertical-align: middle;
 }
 .Name-button-label {
   display: flex;

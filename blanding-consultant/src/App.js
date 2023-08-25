@@ -27,7 +27,7 @@ function NameTable() {
   
   function handleClick() {
     setGenerating(true);
-    let url = new URL("http://127.0.0.1:5000");
+    let url = new URL("https://blanding-consultant-api.nw.r.appspot.com");
     let params = new URLSearchParams(url);
     params.set("absurdity", absurdity);
     if (prefix !== "") {

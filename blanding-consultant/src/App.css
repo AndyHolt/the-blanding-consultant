@@ -15,11 +15,6 @@ html {
   --button-hl-color: var(--highlight-color-1);
   --button-normal-text: var(--button-hl-color);
   --button-hover-text: var(--main-text-color);
-
-
-  --button-color-1: #e0c351;
-  --button-color-2: #000;
-  --button-ornament-offset: -0.5em;
 }
 
 .App {
@@ -99,54 +94,6 @@ html {
     margin-top: 2em;
 }
 
-/* .Name-button { */
-/*     font-family: 'Poiret One', cursive; */
-/*     text-transform: uppercase; */
-/*     display: flex; */
-/*     flex-direction: row; */
-/*     cursor: pointer; */
-/*     align-items: center; */
-/*     background-clip: padding-box; */
-/*     background-color: #F7BC1C; */
-/*     color: #2F1D28; */
-/*     border: 1px solid transparent; */
-/*     border-radius: .25rem; */
-/*     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0; */
-/*     box-sizing: border-box; */
-/*     color: #282c34; */
-/*     font-size: calc(1.2rem + 2vmin); */
-/*     /\* font-weight: 600; *\/ */
-/*     justify-content: center; */
-/*     line-height: 1.25; */
-/*     margin: 0; */
-/*     min-height: 3rem; */
-/*     padding: calc(.875rem - 1px) calc(1.5rem - 1px); */
-/*     position: relative; */
-/*     text-decoration: none; */
-/*     transition: all 250ms; */
-/*     user-select: none; */
-/*     -webkit-user-select: none; */
-/*     touch-action: manipulation; */
-/*     vertical-align: baseline; */
-/*     width: auto; */
-/* } */
-
-/* .Name-button:hover, */
-/* .Name-button:focus { */
-/*     background-color: #F9D060; */
-/*     box-shadow: rgba(0, 0, 0, 0.1) 0, 4px, 12px; */
-/* } */
-
-/* .Name-button:hover { */
-/*     transform: translateY(-1px); */
-/* } */
-
-/* .Name-button:active { */
-/*     background-color: #D29E1A; */
-/*     box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px; */
-/*     transform: translateY(0); */
-/* } */
-
 .Name-button-container {
   background: var(--main-text-color);
   padding: 10px;
@@ -162,7 +109,6 @@ html {
   text-decoration: none;
   padding: 0.5em;
   box-shadow: inset 0 0 0 1px var(--button-hl-color);
-  /* min-width: 340px; */
   text-align: center;
   margin: 0.5em;
   vertical-align: middle;
@@ -177,7 +123,6 @@ html {
 }
 .Name-button:hover .Name-button-label, .Name-button:focus .Name-button-label {
   color: var(--button-hover-text);
-  /* background-color: rgba(224, 195, 81, 0.9); */
   background-color: var(--button-hl-color);
 }
 .Button-ornament {
@@ -259,7 +204,6 @@ html {
 
 .Advanced-user-options-header:hover {
     color: var(--highlight-color-1);
-    /* font-weight: 600; */
 }
 
 .Advanced-user-controls-hidden {
@@ -283,22 +227,6 @@ html {
     justify-content: space-between;
     column-gap: 1em;
 }
-
-/* select { */
-/*   /\* appearance: none; *\/ */
-/*   /\* -moz-appearance: none; *\/ */
-/*   /\* -webkit-appearance: none; *\/ */
-/*   /\* background-color: var(--highlight-color-4); *\/ */
-/*   /\* color: var(--main-background-color); *\/ */
-/*   /\* border: none; *\/ */
-/*   /\* padding: 0.3em 1em; *\/ */
-/*   /\* margin: 0; *\/ */
-/*   /\* width: 100%; *\/ */
-/*   /\* font-family: "Poiret One", cursive; *\/ */
-/*   /\* font-size: 1em; *\/ */
-/*   /\* cursor: pointer; *\/ */
-/*   /\* line-height: inherit; *\/ */
-/* } */
 
 input {
   font-family: inherit;
@@ -344,7 +272,6 @@ input {
   background-size: 200% 2px, 2px 200%;
   background-origin: padding-box;
   background-repeat: no-repeat;
-  /* margin-top: calc(10px + 5vh); */
 }
 
 .Previous-result {
@@ -358,9 +285,6 @@ input {
   background-size: 200% 2px, 2px 200%;
   background-origin: padding-box;
   background-repeat: no-repeat;
-    /* background-color: var(--highlight-color-4); */
-    /* outline: solid var(--fade-text-color) 1px; */
-    /* box-shadow: 2px 2px 1px 1px; */
 }
 
 .Result-name {

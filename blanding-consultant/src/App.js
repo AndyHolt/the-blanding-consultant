@@ -221,7 +221,6 @@ function ResultTable({ names }) {
 
 function Result({ name, isCurrent }) {
   let resultType = "";
-  // let usePrefix = null;
 
   if (isCurrent === "True") {
     resultType = "Result Current-result";

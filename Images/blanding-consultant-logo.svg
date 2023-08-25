@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="400"
+   height="400"
+   viewBox="0 0 105.83333 105.83333"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   sodipodi:docname="blanding-consultant-logo.svg"
+   inkscape:export-filename="blanding-consultant-logo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.94478573"
+     inkscape:cx="1.0584411"
+     inkscape:cy="145.53564"
+     inkscape:window-width="1389"
+     inkscape:window-height="847"
+     inkscape:window-x="51"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="59.272699"
+       y="56.097376"
+       width="270.96091"
+       height="262.49338"
+       id="rect2193" />
+    <rect
+       x="59.272697"
+       y="56.097378"
+       width="270.96091"
+       height="262.49338"
+       id="rect2193-7" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#2f1d28;fill-opacity:1;stroke-width:0.264583"
+       id="rect234"
+       width="105.85734"
+       height="105.57729"
+       x="-6.7255691e-08"
+       y="0.28004599"
+       ry="0" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.43755283,0,0,0.43755283,-15.153299,-38.159009)"
+       id="text2191"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:226.667px;line-height:1.25;font-family:'Poiret One';-inkscape-font-specification:'Poiret One, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect2193);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="59.273438"
+         y="270.80168"
+         id="tspan8606"><tspan
+           style="fill:#f7bc1c"
+           id="tspan8604">B</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.43755283,0,0,0.43755283,1.9301924,-18.847768)"
+       id="text2191-0"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:226.667px;line-height:1.25;font-family:'Poiret One';-inkscape-font-specification:'Poiret One, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect2193-7);display:inline;fill:#f7bc1c;fill-opacity:1;stroke:none"><tspan
+         x="59.273438"
+         y="270.80168"
+         id="tspan8608">C</tspan></text>
+  </g>
+</svg>

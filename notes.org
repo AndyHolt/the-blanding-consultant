@@ -31,7 +31,7 @@ Next steps:
 - [X] Create better favicon and logo (bowler hat?)
 - [X] Write footer text, to include links to Github (and blog post?)
 - [X] Check responsive design on different screen sizes
-- [ ] Deploy to web  
+- [X] Deploy to web
 - [ ] Write blog post
 - [ ] Perhaps make user controls fixed on page, rather than floating down and up
   depending on what results there are to display? The advantage of floating is
@@ -47,6 +47,9 @@ Next steps:
   out a bit more
 - [ ] Deal with hitting "Enter" key in prefix input field (ideally make this
   equivalent to clicking the button)
+- [ ] Make interface work better for touchscreens, especially in how the main
+  button operates. Its present set up works well in mouse-driven environment,
+  but not so well for touchscreen use.
   
 * Issues and technical notes
 To get =textgenrnn= to load in python, I had to edit a core file, even after

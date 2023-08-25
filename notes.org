@@ -45,6 +45,8 @@ Next steps:
   Blog]].
 - [ ] Put an art-deco pattern behind the heading to make header section stand
   out a bit more
+- [ ] Deal with hitting "Enter" key in prefix input field (ideally make this
+  equivalent to clicking the button)
   
 * Issues and technical notes
 To get =textgenrnn= to load in python, I had to edit a core file, even after
@@ -92,6 +94,33 @@ Article on RNNs: http://karpathy.github.io/2015/05/21/rnn-effectiveness/
 Keras machine learning for humans python library (built on tensorflow): https://github.com/keras-team/keras
 
 Tensorflow machine learning library: https://github.com/tensorflow/tensorflow
+
+
+A major difficulty in getting the API running on google cloud was that the high
+memory use was causing the supervisor to shut down the app before a response
+was given, making the whole thing both completely non-working and difficult to
+debug. Eventually, I managed to find an error message from the Google Cloud App
+Engine dashboard with enough information to have a clue what was going on.
+Significantly, I couldn't actually read the message in the App Engine dashboard!
+I had to copy the body of the message to clip board, paste it into Emacs, and
+only then could I actually get any information about what was going on. Since
+the app was taking up too much memory, this led me to look closely at the memory
+usage, and I discovered a memory leak. This was difficult to diagnose, because
+it appeared not to be a single object taking up lots of memory (tracemalloc
+therefore did not help), but many, many small objects each using a small amount
+of memory, building up. The solution was to use keras to clean up in between
+each name generation:
+#+begin_src python
+  tf.keras.backend.clear_session()
+  gc.collect()
+#+end_src
+ this seems to have stopped the memory allocation from
+growing, though it is still fairly high, around 265 MB of memory required. But
+at least now it is a stable amount, and I can begin working out how to get this
+running in Google Cloud App Engine.
+
+Most helpful tutorial I have found on deploying to Google Cloud App Engine:
+[[https://medium.com/@dmahugh_70618/deploying-a-flask-app-to-google-app-engine-faa883b5ffab][Deploying a Flask app to Google App Engine | by Doug Mahugh | Medium]].
 
 * Learning in python
 #+begin_src python

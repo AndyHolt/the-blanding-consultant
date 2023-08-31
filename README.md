@@ -11,4 +11,6 @@ Powered by machine learning using Python,
 [textgenrnn](https://github.com/minimaxir/textgenrnn). Web interface using
 [React](https://react.dev/).
 
-Blog post coming soon...
+See blog post on [Building The Blanding
+Consultant](https://andyholt.github.io/posts/2023/08/building-blanding-consultant/)
+for further details.
